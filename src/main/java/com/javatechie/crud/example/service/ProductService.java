@@ -20,8 +20,14 @@ public class ProductService {
         return repository.saveAll(products);
     }
 
-    public List<Product> getProducts() {
-        return repository.findAll();
+    public ResponseEntity<List<Product> >getProducts() {
+      try{
+        return new ResponseEntity<>(repository.findAll() , HttpStatus.OK);
+      }
+      catch(Exception e){
+        e.printStackTrace();
+      }
+      return new ResponseEntity<>(new ArrayList<>() , HttpStatus.BAD_REQUEST);
     }
 
     public Product getProductById(int id) {
