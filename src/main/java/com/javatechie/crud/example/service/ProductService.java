@@ -22,10 +22,10 @@ public class ProductService {
 
     public ResponseEntity<List<Product> >getProducts() {
       try{
-        return new ResponseEntity<>(repository.findAll() , HttpStatus.OK);
+         return new ResponseEntity<>(repository.findAll() , HttpStatus.OK);
       }
       catch(Exception e){
-        e.printStackTrace();
+         e.printStackTrace();
       }
       return new ResponseEntity<>(new ArrayList<>() , HttpStatus.BAD_REQUEST);
     }
